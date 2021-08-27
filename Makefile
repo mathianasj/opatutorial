@@ -1,0 +1,2 @@
+test:
+	opa test -v .
