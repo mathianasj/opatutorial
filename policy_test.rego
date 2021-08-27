@@ -162,3 +162,19 @@ test_admin_delete_allowed {
         }
     }
 }
+
+test_admin_get_animal_denied {
+    not allow with input as {
+        "attributes": {
+            "request": {
+                "http": {
+                    "headers": {
+                        "authorization": concat(" ", ["Bearer", admin_token])
+                    },
+                    "method": "GET",
+                    "path": "/animal/1",
+	            }
+            }
+        }
+    }
+}
